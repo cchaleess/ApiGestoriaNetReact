@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  gestoriafrontend:
+    container_name: gestoriafrontend
+    build: C:/Users/axel.picon/Desktop/frontenreactaxelprueba
+    volumes:
+      - 'C:/Users/axel.picon/Desktop/frontenreactaxelprueba:/app'
+      - '/app/node_modules'
+    ports:
+      - 3000:3000
+  app:
+    build: .
+    ports: [8080:80]
+    depends_on: [gestoriafrontend]
+
+

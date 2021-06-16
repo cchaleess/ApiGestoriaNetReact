@@ -1,0 +1,26 @@
+ 
+PS C:\Users\axel.picon\Desktop\ApiGestoria\ApiGestoria> docker build -t apigestoria .
+
+PS C:\Users\axel.picon\Desktop\ApiGestoria\ApiGestoria> docker compose build .
+
+PS C:\Users\axel.picon\Desktop\ApiGestoria\ApiGestoria> docker run --rm -p 8080:80 apigestoria .
+
+warn: Microsoft.AspNetCore.DataProtection.Repositories.FileSystemXmlRepository[60]
+      Storing keys in a directory '/root/.aspnet/DataProtection-Keys' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
+warn: Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager[35]
+      No XML encryptor configured. Key {315a7aa1-5d5c-46a1-b683-da56aa832140} may be persisted to storage in unencrypted form.
+info: Microsoft.Hosting.Lifetime[0]
+      Now listening on: http://[::]:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: /app
+warn: Microsoft.AspNetCore.HttpsPolicy.HttpsRedirectionMiddleware[3]
+      Failed to determine the https port for redirect.
+info: Microsoft.Hosting.Lifetime[0]
+      Application is shutting down...
+
+
+
