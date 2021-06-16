@@ -14,7 +14,6 @@ namespace ApiGestoria.Dto
         public string UserCreated { get; set; }
         public DateTime? DateCreated { get; set; }
         public List<DepartmentDTO> Department { get; set; }
-
         public long DepartmentId { get; set; }
         public string ProfileName { get; set; }
     }

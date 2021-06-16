@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using ApiGestoria.dto;
 using Microsoft.AspNetCore.Authentication.WsFederation;
 using System.Xml.Linq;
+using ApiGestoria.Interfaces;
 
 namespace ApiGestoria.Controllers
 {
@@ -19,50 +20,26 @@ namespace ApiGestoria.Controllers
     {
 
         private readonly IConfiguration _configuration;
+        private readonly ISamlServices _samlServices;
 
-        public SamlController(IConfiguration configuration)
+        public SamlController(IConfiguration configuration , ISamlServices SamlServices)
 
         {
             _configuration = configuration;
+            _samlServices = SamlServices;
         }
 
         [HttpPost("saml")]
         public ActionResult AuthenticationHelper()
-        {      
-          string token = "";
-          XmlDocument xml = new XmlDocument();
-          xml.LoadXml(Request.Form["wresult"]);
-          XmlNamespaceManager mgr = new XmlNamespaceManager(xml.NameTable);
-          mgr.AddNamespace("saml", "urn:oasis:names:tc:SAML:2.0:assertion");
-          XmlElement attributeStatementNode = (XmlElement)xml.SelectSingleNode("//saml:AttributeStatement", mgr);
-          
-          XmlDocument xml3 = new XmlDocument();
-          xml3.LoadXml("<document>"+attributeStatementNode.InnerXml+"</document>"); 
-          XmlNode root = xml3.FirstChild;
-
-          UserSamLoginInfo UserSamLoginInfo = new UserSamLoginInfo();
-          UserSamLoginInfo.name = root.ChildNodes[3].InnerText;
-          UserSamLoginInfo.surname = root.ChildNodes[2].InnerText;
-
-          TokenService TokenService = new TokenService();
-          token = TokenService.BuildToken(_configuration ,UserSamLoginInfo);
-
-          string url = "http://localhost:3000/token=" + token + "&nameUser=" + UserSamLoginInfo.name;
-          RedirectResult redirectResult = new RedirectResult(url, true);
-          return redirectResult;
+        {
+            return _samlServices.AuthenticationHelper(Request.Form["wresult"].ToString());
         }
 
         //metodo de prueba que sera eliminado//
         [HttpGet("TokenTest")]
         public IActionResult GetTokenTest()
         {
-            string token = "";
-            UserSamLoginInfo UserSamLoginInfo = new UserSamLoginInfo();
-            UserSamLoginInfo.name = "aels";
-            UserSamLoginInfo.surname = "pepe";
-            TokenService TokenService = new TokenService();
-            token = TokenService.BuildToken(_configuration, UserSamLoginInfo);
-            return new JsonResult(token);
+            return _samlServices.GetTokenTest();
         }
 
         [Authorize]

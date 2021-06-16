@@ -36,6 +36,7 @@
           "Microsoft.AspNetCore.Authentication.WsFederation": "3.1.15",
           "Microsoft.Azure.KeyVault": "3.0.5",
           "Microsoft.Azure.Services.AppAuthentication": "1.6.1",
+          "Microsoft.EntityFrameworkCore.Analyzers": "5.0.7",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.7",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.7",
           "MySql.Data": "8.0.25",

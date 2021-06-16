@@ -12,9 +12,5 @@ namespace ApiGestoria.Dto
         public long DepartmentId { get; set; }
         public string PhotoFileName { get; set; }
         public string UserModificated { get; set; }
-        public DateTime? DateModificated { get; set; }
-        public string UserCreated { get; set; }
-        public DateTime? DateCreated { get; set; }
-        public DateTime DownDate { get; set; }
     }
 }

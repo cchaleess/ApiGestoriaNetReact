@@ -25,6 +25,7 @@ namespace ApiGestoria.Controllers
         private readonly IEmployeeServices _employeeServices;
         public EmployeeController(IEmployeeServices employeeServices, IConfiguration configuration)
 
+        
         {
             _configuration = configuration;
             _employeeServices = employeeServices;
@@ -42,10 +43,10 @@ namespace ApiGestoria.Controllers
             return new JsonResult(await _employeeServices.SaveEmployeeDataBase(employeecreateddto));
         }
 
-        [HttpPut("{employeeId}")]
-        public async Task<JsonResult> Put(EmployeeUpdateDTO employeeuopdatedto, long employeeId)
+        [HttpPut("{id}")]
+        public async Task<JsonResult> Put(EmployeeUpdateDTO employeeuopdatedto, long id)
         {
-            return new JsonResult(await _employeeServices.UpdateEmployeeDataBase(employeeuopdatedto, employeeId));
+            return new JsonResult(await _employeeServices.UpdateEmployeeDataBase(employeeuopdatedto, id));
         }
 
         [HttpDelete("{id}")]

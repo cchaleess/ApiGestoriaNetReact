@@ -43,6 +43,7 @@ namespace ApiGestoria
             services.AddScoped<IDeparmentServices, DeparmentServices>();
             services.AddScoped<IEmployeeServices, EmployeeServices>();
             services.AddScoped<IConnectionSqlServices, ConnectionSqlServices>();
+            services.AddScoped<ISamlServices, SamlServices>();
 
 
             services.AddCors(o => o.AddPolicy("MyPolicy", builder =>

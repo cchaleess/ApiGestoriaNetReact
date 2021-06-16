@@ -15,6 +15,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Authentication.WsFederation" Version="3.1.15" />
     <PackageReference Include="Microsoft.Azure.KeyVault" Version="3.0.5" />
     <PackageReference Include="Microsoft.Azure.Services.AppAuthentication" Version="1.6.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Analyzers" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.7" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.7">
       <PrivateAssets>all</PrivateAssets>

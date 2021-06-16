@@ -41,10 +41,10 @@ namespace ApiGestoria.Controllers
             return new JsonResult(await _deparmentServices.SaveDepartmentDataBase(departmentdto));
         }
 
-        [HttpPut("{deparmentId}")]
-        public async Task<JsonResult> Put(DepartmentUpdateDTO departmentdto , long deparmentId)
+        [HttpPut("{id}")]
+        public async Task<JsonResult> Put(DepartmentUpdateDTO departmentdto , long id)
         {
-            return new JsonResult(await _deparmentServices.UpdateDepartmentDataBase(departmentdto, deparmentId));
+            return new JsonResult(await _deparmentServices.UpdateDepartmentDataBase(departmentdto, id));
         }
 
         [HttpDelete("{id}")]

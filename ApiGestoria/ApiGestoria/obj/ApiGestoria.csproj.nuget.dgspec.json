@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\axel.picon\\Desktop\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj": {}
+    "C:\\Users\\axel.picon\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\axel.picon\\Desktop\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj": {
+    "C:\\Users\\axel.picon\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\axel.picon\\Desktop\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
+        "projectUniqueName": "C:\\Users\\axel.picon\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
         "projectName": "ApiGestoria",
-        "projectPath": "C:\\Users\\axel.picon\\Desktop\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
+        "projectPath": "C:\\Users\\axel.picon\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
         "packagesPath": "C:\\Users\\axel.picon\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\axel.picon\\Desktop\\ApiGestoria\\ApiGestoria\\obj\\",
+        "outputPath": "C:\\Users\\axel.picon\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -62,6 +62,10 @@
             "Microsoft.Azure.Services.AppAuthentication": {
               "target": "Package",
               "version": "[1.6.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
+              "target": "Package",
+              "version": "[5.0.7, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

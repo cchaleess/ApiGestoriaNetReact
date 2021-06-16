@@ -31,7 +31,7 @@ namespace ApiGestoria.Services
             string query = "";
             try
             {
-                query = @"SELECT dbo.EMPLOYEE.Id, dbo.EMPLOYEE.Name, DepartmentId, dbo.EMPLOYEE.UserCreated , Photofilename , dbo.DEPARTMENT.name as NameDepartment 
+                query = @"SELECT dbo.EMPLOYEE.Id, dbo.EMPLOYEE.Name, DepartmentId, dbo.EMPLOYEE.UserCreated ,dbo.EMPLOYEE.DateCreated , Photofilename , dbo.DEPARTMENT.name as NameDepartment 
                         FROM dbo.EMPLOYEE INNER JOIN dbo.DEPARTMENT ON dbo.EMPLOYEE.DepartmentId = dbo.DEPARTMENT.Id ";
 
                 return await _ConnectionSqlServices.GetDataFormatJsonFromSql(query);
