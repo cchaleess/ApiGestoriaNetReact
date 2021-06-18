@@ -120,16 +120,14 @@ namespace ApiGestoria
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
 
-
             using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
             {
-                System.Console.WriteLine("escribiendo migraciones");
-
+                System.Console.WriteLine("Inciando Inserción de migraciones a base de datos");
 
                 var context = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
                 context.Database.Migrate();
 
-                System.Console.WriteLine("migraciones actualizadas correctamente");
+                System.Console.WriteLine("Inserción de migraciones realizada correctamente");
             }
 
             if (env.IsDevelopment())
