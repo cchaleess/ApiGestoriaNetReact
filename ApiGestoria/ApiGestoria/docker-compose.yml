@@ -1,16 +1,39 @@
 version: '3.9'
 services:
-  gestoriafrontend:
-    container_name: gestoriafrontend
-    build: C:/Users/axel.picon/Desktop/frontenreactaxelprueba
-    volumes:
-      - 'C:/Users/axel.picon/Desktop/frontenreactaxelprueba:/app'
-      - '/app/node_modules'
-    ports:
-      - 3000:3000
-  app:
-    build: .
-    ports: [8080:80]
-    depends_on: [gestoriafrontend]
+
+    db:
+        container_name: gestoriabasededatosapi
+        image: "mcr.microsoft.com/mssql/server:2019-latest"
+        ports:
+            - "14033:1433"
+        environment:
+               ACCEPT_EULA: "Y"
+               SA_PASSWORD: "Paikon0709"
+               MSSQL_PID: Express
+        restart: always
+    app:
+         container_name: gestoriaapinet
+         build: .
+         depends_on:
+             - db
+         environment:
+           DBServer: "db"
+         ports: [8080:80] 
+         restart: always
+                 
+    gestoriafrontend:
+         container_name: gestoriafrontend
+         build: 
+               context: C:/Users/axel.picon/Desktop/employee/
+               dockerfile: C:/Users/axel.picon/Desktop/employee/Dockerfile
+         depends_on:
+             - app            
+         volumes:
+                 - 'C:/Users/axel.picon/Desktop/employee:/app'
+                 - '/app/node_modules'
+         ports:
+                - 3000:3000
+         restart: always
+
 
 
