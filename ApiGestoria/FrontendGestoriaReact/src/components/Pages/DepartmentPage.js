@@ -3,7 +3,7 @@ import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import React, { useState, useEffect, Fragment } from "react";
 import Globals from '../../Global';
 import DeparmentService from "../../Services/DepartmentService";
-import GenericTable  from "../Utilities/GenericTable";
+import DepartmentTable  from "../Tables/DepartmentTable";
 import DepartmentModalInsert from "../Modals/DepartmentModalInsert";
 import DepartmentModalUpdate from "../Modals/DepartmentModalUpdate";
 import DepartmentModalDelete from "../Modals/DeparmentModalDelete";
@@ -107,12 +107,12 @@ function DepartmentPage() {
 
   return (
     <div className="App">
-      <GenericTable
+      <DepartmentTable
           title={titleTable}
           listTh={listTh}
           listTr={data}
           selectionPopup={seleccionaDep}>
-      </GenericTable>
+      </DepartmentTable>
           
       <button onClick={() => modalOnOffInsertar()} className="btn btn-success">
         Agregar Departamento

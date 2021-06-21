@@ -1,6 +1,6 @@
 import React, { useState ,Fragment } from "react";
 
-function GenericTable({ title, listTh , listTr , selectionPopup}) {
+function DepartmentTable({ title, listTh , listTr , selectionPopup}) {
     debugger;
    return (
     <Fragment>
@@ -17,12 +17,11 @@ function GenericTable({ title, listTh , listTr , selectionPopup}) {
       </thead>
       <tbody>
             {listTr === "[]" || listTr === null || listTr === "" || listTr.lenght === 0
-                ? "no hay datos a mostrar "
+                ? "no hay datos departamentos a mostrar "
             : listTr.map((TrValue) => (           
                 <tr key={TrValue.id}>
                 <td>{TrValue.id}</td>
-                <td>{TrValue.name}</td>
-                
+                <td>{TrValue.name}</td>              
                 <td>
                     <button
                     className="btn btn-primary"
@@ -44,4 +43,4 @@ function GenericTable({ title, listTh , listTr , selectionPopup}) {
   </Fragment>
   );
 }
-export default GenericTable;
+export default DepartmentTable;

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import React, { useState, useEffect ,Fragment } from "react";
-import GenericTable from '../Utilities/GenericTable';
+import EmployeeTable from '../Tables/EmployeeTable';
 import EmployeeService from "../../Services/EmployeeService";
 import DepartmentService from "../../Services/DepartmentService";
 import EmployeeModalDelete from "../Modals/EmployeeModalDelete";
@@ -123,12 +123,12 @@ function EmployeePage() {
 
   return (
     <div className="App">
-      <GenericTable
+      <EmployeeTable
           title={titleTable}
           listTh={listTh}
           listTr={data}
           selectionPopup={seleccionaEmp}
-      ></GenericTable>
+      ></EmployeeTable>
 
       <button onClick={() => modalOnOff()} className="btn btn-success">
         Agregar Empleado
