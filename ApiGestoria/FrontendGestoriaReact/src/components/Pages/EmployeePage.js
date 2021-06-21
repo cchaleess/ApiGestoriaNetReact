@@ -14,8 +14,6 @@ function EmployeePage() {
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
   const [departamento, setDepartamento] = useState([]);
-
-
   const [listTh, setlistTh] = useState(['Id', 'Nombre', 'Fecha usuario alta','Departamento','Administración']);
   const [titleTable, setTitleTable] = useState('Tabla Empleados');
 
@@ -49,6 +47,7 @@ function EmployeePage() {
     await new EmployeeService().getEmployeeList().then(
       (response) => {
         if (response && response != null) {
+          debugger;
           setData(JSON.parse(JSON.parse(response)));      
         }
       }
@@ -145,7 +144,7 @@ function EmployeePage() {
 
         <EmployeeModalUpdate
           UpdateEmployeeFunction = {UpdateEmployee}
-          mmodalOnOffEmployeeFunction = {modalOnOffEditar}
+          modalOnOffEmployeeFunction = {modalOnOffEditar}
           OpenModalEmployeeUpdate = {modalEditar}
           HandleChange={handleChange} 
           DepartmentsList = {departamento} 

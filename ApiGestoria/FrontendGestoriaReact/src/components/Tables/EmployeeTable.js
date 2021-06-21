@@ -21,7 +21,7 @@ function EmployeeTable({ title, listTh , listTr , selectionPopup}) {
                 <tr key={TrValue.id}>
                 <td>{TrValue.id}</td>
                 <td>{TrValue.name}</td> 
-                <td>{TrValue.userCreated}</td>   
+                <td>{TrValue.dateCreated}</td>   
                 <td>{TrValue.departmentname}</td>        
                 <td>
                     <button
