@@ -1,21 +1,23 @@
 import axios from "axios";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import React, { useState, useEffect ,Fragment } from "react";
-import GenericTable from './GenericTable';
-import EmployeeService from "../Services/EmployeeService";
-import DepartmentService from "../Services/DepartmentService";
-import EmployeeModalDelete from "../components/Modals/EmployeeModalDelete";
-import EmployeeModalUpdate from "../components/Modals/EmployeeModalUpdate";
-import EmployeeModalInsert from "../components/Modals/EmployeeModalInsert";
+import GenericTable from '../Utilities/GenericTable';
+import EmployeeService from "../../Services/EmployeeService";
+import DepartmentService from "../../Services/DepartmentService";
+import EmployeeModalDelete from "../Modals/EmployeeModalDelete";
+import EmployeeModalUpdate from "../Modals/EmployeeModalUpdate";
+import EmployeeModalInsert from "../Modals/EmployeeModalInsert";
 
-function Employee() {
+function EmployeePage() {
   const [data, setData] = useState([]);
   const [modalInsertar, setModalInsertar] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
   const [departamento, setDepartamento] = useState([]);
 
+
   const [listTh, setlistTh] = useState(['Id', 'Nombre', 'Fecha usuario alta','Departamento','Administración']);
+  const [titleTable, setTitleTable] = useState('Tabla Empleados');
 
   const [empSelected, setEmpSelected] = useState({
     id: 0,
@@ -44,18 +46,17 @@ function Employee() {
   };
 
   const GetEmployees = async () => {
-
     await new EmployeeService().getEmployeeList().then(
       (response) => {
         if (response && response != null) {
-          debugger;
           setData(JSON.parse(JSON.parse(response)));      
         }
       }
     );
   }
 
-const InsertEmployee = async () => {
+  const InsertEmployee = async () => {
+    empSelected.departmentId = parseInt(document.getElementById("comboDepartamento").value);
     await new EmployeeService().insertEmployee(empSelected).then(
       (response) => {
         if (response && response != null) {
@@ -67,7 +68,7 @@ const InsertEmployee = async () => {
     );
   }
 
-const UpdateEmployee = async () => {
+  const UpdateEmployee = async () => {
     await new EmployeeService().updateEmployee(empSelected).then(
       (response) => {
         if (response && response != null) {
@@ -78,7 +79,7 @@ const UpdateEmployee = async () => {
     );
   }
 
-const DeleteEmployee = async () => {
+  const DeleteEmployee = async () => {
     await new EmployeeService().deleteEmployee(empSelected.id).then(
       (response) => {
         if (response && response != null) {
@@ -89,28 +90,25 @@ const DeleteEmployee = async () => {
     );
   }
 
-  //COMBOBOX DEPARTAMENTOS
   const GetDepartments = async () => {
     await new DepartmentService().getDepartmentList().then(
       (response) => {
         if (response && response != null) {
-          setDepartamento(JSON.parse(response.data)); 
+          setDepartamento(JSON.parse(response)); 
         }
       }
     );
   };
 
   const seleccionaEmp = (accion) => (event) => {
-    var rowid = parseInt(
-      event.target.parentNode.parentNode.firstElementChild.innerHTML
-        .replace("td", "")
-        .replace("/td"),
-      10
-    );
+    var rowid = parseInt(event.target.parentNode.parentNode.firstElementChild.innerHTML.replace("td", "").replace("/td"),10);
     empSelected.id = rowid;
     empSelected.name = event.target.parentNode.parentNode.innerHTML.split("td")[3].replace('</','').replace('>','');
-    accion === "Editar" ? modalOnOffEditar() : modalOnOffEliminar();
-    
+
+    debugger;
+
+    empSelected.departmentId = event.target.parentNode.parentNode.innerHTML.split("td")[3].replace('</','').replace('>','');
+    accion === "Editar" ? modalOnOffEditar() : modalOnOffEliminar();    
   };
 
   const modalOnOffInsertar = () => {
@@ -125,10 +123,8 @@ const DeleteEmployee = async () => {
 
   return (
     <div className="App">
-      <br />
-      <h1>Tabla Empleados</h1>
-      <br />
       <GenericTable
+          title={titleTable}
           listTh={listTh}
           listTr={data}
           selectionPopup={seleccionaEmp}
@@ -143,23 +139,18 @@ const DeleteEmployee = async () => {
           InsertEmployeeFunction = {InsertEmployee}
           modalOnOffInsertEmployeeFunction = {modalOnOffInsertar}
           OpenModalEmployeeInsert = {modalInsertar}
+          DepartmentsList = {departamento}
           HandleChange={handleChange}     
          ></EmployeeModalInsert>
-
 
         <EmployeeModalUpdate
           UpdateEmployeeFunction = {UpdateEmployee}
           mmodalOnOffEmployeeFunction = {modalOnOffEditar}
           OpenModalEmployeeUpdate = {modalEditar}
-          HandleChange={handleChange}  
-          EmployeeId = {empSelected.id} 
-          EmployeeName = {empSelected.name}          
+          HandleChange={handleChange} 
+          DepartmentsList = {departamento} 
+          CurrentDepartmentId = {empSelected.departmentId}        
          ></EmployeeModalUpdate>
-
-
-
-
-
 
         <EmployeeModalDelete
           DeleteEmployeeFunction = {DeleteEmployee}
@@ -167,11 +158,10 @@ const DeleteEmployee = async () => {
           OpenModalEmployeeDelete = {modalEliminar}
           Name = {empSelected.name}   
           HandleChange={handleChange}        
-       ></EmployeeModalDelete>
-
+         ></EmployeeModalDelete>
 
       </Fragment>
     </div>
   );
 }
-export default Employee;
+export default EmployeePage;

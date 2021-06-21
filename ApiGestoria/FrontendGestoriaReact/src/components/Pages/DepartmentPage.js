@@ -1,20 +1,21 @@
 import axios from "axios";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 import React, { useState, useEffect, Fragment } from "react";
-import Globals from '../Global';
-import DeparmentService from "../Services/DepartmentService";
-import GenericTable  from "./GenericTable";
-import DepartmentModalInsert from "../components/Modals/DepartmentModalInsert";
-import DepartmentModalUpdate from "../components/Modals/DepartmentModalUpdate";
-import DepartmentModalDelete from "../components/Modals/DeparmentModalDelete";
+import Globals from '../../Global';
+import DeparmentService from "../../Services/DepartmentService";
+import GenericTable  from "../Utilities/GenericTable";
+import DepartmentModalInsert from "../Modals/DepartmentModalInsert";
+import DepartmentModalUpdate from "../Modals/DepartmentModalUpdate";
+import DepartmentModalDelete from "../Modals/DeparmentModalDelete";
 
-function Department() {
+function DepartmentPage() {
 
   const [data, setData] = useState([]);
   const [modalInsertar, setModalInsertar] = useState(false);
   const [modalEditar, setModalEditar] = useState(false);
   const [modalEliminar, setModalEliminar] = useState(false);
   const [listTh, setlistTh] =   useState(['Id', 'Nombre','Administración']);
+  const [titleTable, setTitleTable] = useState('Tabla Departamentos');
 
   const [depSelected, setDepSelected] = useState({
     id: 0,
@@ -106,15 +107,11 @@ function Department() {
 
   return (
     <div className="App">
-      <br />
-      <h1>Tabla Departamentos</h1>
-
-      <br />
       <GenericTable
+          title={titleTable}
           listTh={listTh}
           listTr={data}
-          selectionPopup={seleccionaDep}
-      >
+          selectionPopup={seleccionaDep}>
       </GenericTable>
           
       <button onClick={() => modalOnOffInsertar()} className="btn btn-success">
@@ -153,4 +150,4 @@ function Department() {
   );
 }
 
-export default Department;
+export default DepartmentPage;

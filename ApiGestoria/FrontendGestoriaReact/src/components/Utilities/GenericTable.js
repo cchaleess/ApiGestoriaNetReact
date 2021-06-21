@@ -1,9 +1,10 @@
 import React, { useState ,Fragment } from "react";
 
-function GenericTable({ listTh , listTr , selectionPopup}) {
+function GenericTable({ title, listTh , listTr , selectionPopup}) {
     debugger;
    return (
     <Fragment>
+      <h1>{title}</h1>
       <table className="table table-bordered">
       <thead>
             {listTh === "[]" || listTh === null || listTh === "" || listTh.lenght === 0
@@ -21,6 +22,7 @@ function GenericTable({ listTh , listTr , selectionPopup}) {
                 <tr key={TrValue.id}>
                 <td>{TrValue.id}</td>
                 <td>{TrValue.name}</td>
+                
                 <td>
                     <button
                     className="btn btn-primary"

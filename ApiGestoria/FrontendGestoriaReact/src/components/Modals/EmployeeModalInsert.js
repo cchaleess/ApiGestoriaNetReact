@@ -1,7 +1,7 @@
 import React, { useState ,Fragment } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
-function EmployeeModalInsert({InsertEmployeeFunction , modalOnOffInsertEmployeeFunction  , OpenModalEmployeeInsert  ,  HandleChange }) {
+function EmployeeModalInsert({InsertEmployeeFunction , modalOnOffInsertEmployeeFunction  , OpenModalEmployeeInsert  ,  DepartmentsList, HandleChange }) {
     debugger;
    return (
     <Fragment>
@@ -15,7 +15,32 @@ function EmployeeModalInsert({InsertEmployeeFunction , modalOnOffInsertEmployeeF
                 type="text"
                 className="form-control"
                 name="name"
-                onChange={HandleChange}
+                onChange={HandleChange }
+              />
+              <br />
+              <label>Departamento: </label>
+              <br />
+              <select
+                id="comboDepartamento"
+                name="departmentId"
+                className="form-control"
+              >
+                {DepartmentsList.map((dpto) => {
+                  return (
+                    <option key={dpto.id} value={dpto.id}>
+                      {dpto.name}
+                    </option>
+                  );
+                })}
+              </select>
+              <br />
+              <label>Fecha de ingreso: </label>
+              <br />
+              <input
+                type="date"
+                className="form-control"
+                name="userCreated"
+                onChange={HandleChange }
               />
               <br />
             </div>

@@ -1,7 +1,7 @@
 import React, { useState ,Fragment } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
-function EmployeeModalUpdate({UpdateEmployeeFunction , modalOnOffEmployeeFunction  , OpenModalEmployeeUpdate  ,  HandleChange , EmployeeId  ,EmployeeName }) {
+function EmployeeModalUpdate({UpdateEmployeeFunction , modalOnOffEmployeeFunction  , OpenModalEmployeeUpdate  ,  HandleChange , DepartmentsList, CurrentDepartmentId }) {
     debugger;
    return (
     <Fragment>
@@ -9,23 +9,40 @@ function EmployeeModalUpdate({UpdateEmployeeFunction , modalOnOffEmployeeFunctio
           <ModalHeader>Modifica datos</ModalHeader>
           <ModalBody>
             <div className="form-group">
-              <label>ID: </label>
-              <br />
-              <input
-                type="text"
-                className="form-control"
-                readOnly
-                value={EmployeeId}
-              />
-              <label>Nuevo Nombre: </label>
+              <label>Nombre: </label>
               <br />
               <input
                 type="text"
                 className="form-control"
                 name="name"
-                onChange={HandleChange}
-                value={EmployeeName}
+                onChange={HandleChange }
               />
+              <br />
+              <label>Departamento: </label>
+              <br />
+              <select
+                id="comboDepartamento"
+                name="departmentId"
+                className="form-control"
+              >
+                {DepartmentsList.map((dpto) => {
+                  return (
+                    <option key={dpto.id} value={dpto.id}>
+                      {dpto.name}
+                    </option>
+                  );
+                })}
+              </select>
+              <br />
+              <label>Fecha de ingreso: </label>
+              <br />
+              <input
+                type="date"
+                className="form-control"
+                name="userCreated"
+                onChange={HandleChange }
+              />
+              <br />
             </div>
           </ModalBody>
           <ModalFooter>

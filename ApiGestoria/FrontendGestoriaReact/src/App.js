@@ -1,10 +1,10 @@
 import React, { useEffect, Fragment } from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import { Navigation } from "./webcomponents/Navigation";
-import Home from "./webcomponents/Home";
-import Footer from "./webcomponents/Footer";
-import Employee from "./components/Employee";
-import Department from "./components/Department";
+import { Navigation } from "./components/Utilities/Navigation";
+import Home from "./components/Pages/HomePage";
+import Footer from "./components/Utilities/Footer";
+import Employee from "./components/Pages/EmployeePage";
+import Department from "./components/Pages/DepartmentPage";
 
 function App() {
 
