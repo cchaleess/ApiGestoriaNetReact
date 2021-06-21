@@ -102,11 +102,9 @@ function EmployeePage() {
   const seleccionaEmp = (accion) => (event) => {
     var rowid = parseInt(event.target.parentNode.parentNode.firstElementChild.innerHTML.replace("td", "").replace("/td"),10);
     empSelected.id = rowid;
-    empSelected.name = event.target.parentNode.parentNode.innerHTML.split("td")[3].replace('</','').replace('>','');
-
     debugger;
-
-    empSelected.departmentId = event.target.parentNode.parentNode.innerHTML.split("td")[3].replace('</','').replace('>','');
+    empSelected.name = event.target.parentNode.parentNode.innerHTML.split("td")[3].replace('</','').replace('>','');
+    empSelected.departmentId = parseInt(event.target.parentNode.parentNode.innerHTML.split("td")[5].split(">")[1].split("<"),10);
     accion === "Editar" ? modalOnOffEditar() : modalOnOffEliminar();    
   };
 
@@ -148,6 +146,7 @@ function EmployeePage() {
           OpenModalEmployeeUpdate = {modalEditar}
           HandleChange={handleChange} 
           DepartmentsList = {departamento} 
+          CurrentEmployeeName = {empSelected.name}  
           CurrentDepartmentId = {empSelected.departmentId}        
          ></EmployeeModalUpdate>
 

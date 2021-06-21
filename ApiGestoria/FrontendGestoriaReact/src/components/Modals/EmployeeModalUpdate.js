@@ -1,7 +1,7 @@
 import React, { useState ,Fragment } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
-function EmployeeModalUpdate({UpdateEmployeeFunction , modalOnOffEmployeeFunction  , OpenModalEmployeeUpdate  ,  HandleChange , DepartmentsList, CurrentDepartmentId }) {
+function EmployeeModalUpdate({UpdateEmployeeFunction , modalOnOffEmployeeFunction  , OpenModalEmployeeUpdate  ,  HandleChange , DepartmentsList, CurrentEmployeeName,CurrentDepartmentId }) {
     debugger;
    return (
     <Fragment>
@@ -16,6 +16,7 @@ function EmployeeModalUpdate({UpdateEmployeeFunction , modalOnOffEmployeeFunctio
                 className="form-control"
                 name="name"
                 onChange={HandleChange }
+                value={CurrentEmployeeName}
               />
               <br />
               <label>Departamento: </label>
@@ -27,7 +28,7 @@ function EmployeeModalUpdate({UpdateEmployeeFunction , modalOnOffEmployeeFunctio
               >
                 {DepartmentsList.map((dpto) => {
                   return (
-                    <option key={dpto.id} value={dpto.id}>
+                    <option key={dpto.id} value={dpto.id} selected={CurrentDepartmentId === dpto.id ?  true: false }>
                       {dpto.name}
                     </option>
                   );

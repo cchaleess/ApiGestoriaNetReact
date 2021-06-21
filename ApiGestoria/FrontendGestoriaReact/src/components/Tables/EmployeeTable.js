@@ -20,7 +20,8 @@ function EmployeeTable({ title, listTh , listTr , selectionPopup}) {
             : listTr.map((TrValue) => (           
                 <tr key={TrValue.id}>
                 <td>{TrValue.id}</td>
-                <td>{TrValue.name}</td> 
+                <td>{TrValue.name}</td>
+                <td style={{display: 'none'}} >{TrValue.departmentId}</td>    
                 <td>{TrValue.dateCreated}</td>   
                 <td>{TrValue.departmentname}</td>        
                 <td>
