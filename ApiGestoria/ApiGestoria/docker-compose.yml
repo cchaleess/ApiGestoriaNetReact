@@ -29,7 +29,7 @@ services:
          depends_on:
              - app            
          volumes:
-                 - 'C:/Users/axel.picon/Desktop/ApiGestoriaNet/ApiGestoria\FrontendGestoriaReact:/app'
+                 - 'C:/Users/axel.picon/Desktop/ApiGestoriaNet/ApiGestoria/FrontendGestoriaReact:/app'
                  - '/app/node_modules'
          ports:
                 - 3000:3000
