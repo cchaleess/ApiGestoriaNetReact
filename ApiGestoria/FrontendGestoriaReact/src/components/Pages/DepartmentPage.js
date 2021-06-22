@@ -11,9 +11,9 @@ import DepartmentModalDelete from "../Modals/DeparmentModalDelete";
 function DepartmentPage() {
 
   const [data, setData] = useState([]);
-  const [modalInsertar, setModalInsertar] = useState(false);
-  const [modalEditar, setModalEditar] = useState(false);
-  const [modalEliminar, setModalEliminar] = useState(false);
+  const [modalInsert, setModalInsert] = useState(false);
+  const [modalEdit, setModalEdit] = useState(false);
+  const [modalDelete, setModalDelete] = useState(false);
   const [listTh, setlistTh] =   useState(['Id', 'Nombre','Administración']);
   const [titleTable, setTitleTable] = useState('Tabla Departamentos');
 
@@ -44,7 +44,7 @@ function DepartmentPage() {
         (response) => {
           if (response && response != null) {
             setData(data.concat(response));
-            modalOnOffInsertar();
+            modalOnOffInsert();
             GetDepartments();    
           }
         }
@@ -55,7 +55,7 @@ function DepartmentPage() {
       await new DeparmentService().updateDepartment(depSelected).then(
         (response) => {
           if (response && response != null) {
-            modalOnOffEditar();
+            modalOnOffEdit();
             GetDepartments();    
           }
         }
@@ -66,7 +66,7 @@ function DepartmentPage() {
       await new DeparmentService().deleteDepartment(depSelected.id).then(
         (response) => {
           if (response && response != null) {
-            modalOnOffEliminar();
+            modalOnOffDelete();
             GetDepartments();    
           }
         }
@@ -81,7 +81,6 @@ function DepartmentPage() {
     });
   };
 
-  //MANEJO DE MODALES
   const seleccionaDep = (accion) => (event) => {
     var rowid = parseInt(
       event.target.parentNode.parentNode.firstElementChild.innerHTML
@@ -91,17 +90,17 @@ function DepartmentPage() {
     );
     depSelected.id = rowid;
     depSelected.name = event.target.parentNode.parentNode.innerHTML.split("td")[3].replace('</','').replace('>','');
-    accion === "Editar" ? modalOnOffEditar() : modalOnOffEliminar();
+    accion === "Editar" ? modalOnOffEdit() : modalOnOffDelete();
   };
 
-  const modalOnOffInsertar = () => {
-    setModalInsertar(!modalInsertar);
+  const modalOnOffInsert= () => {
+    setModalInsert(!modalInsert);
   };
-  const modalOnOffEditar = () => {
-    setModalEditar(!modalEditar);
+  const modalOnOffEdit = () => {
+    setModalEdit(!modalEdit);
   };
-  const modalOnOffEliminar = () => {
-    setModalEliminar(!modalEliminar);
+  const modalOnOffDelete = () => {
+    setModalDelete(!modalDelete);
   };
 
 
@@ -114,7 +113,7 @@ function DepartmentPage() {
           selectionPopup={seleccionaDep}>
       </DepartmentTable>
           
-      <button onClick={() => modalOnOffInsertar()} className="btn btn-success">
+      <button onClick={() => modalOnOffInsert()} className="btn btn-success">
         Agregar Departamento
       </button>
 
@@ -122,15 +121,15 @@ function DepartmentPage() {
 
         <DepartmentModalInsert 
           InsertDeparmentFunction = {InsertDepartments}
-          modalOnOffInsertDeparmentFunction = {modalOnOffInsertar}
-          OpenModalDeparmentInsert = {modalInsertar}
+          modalOnOffInsertDeparmentFunction = {modalOnOffInsert}
+          OpenModalDeparmentInsert = {modalInsert}
           HandleChange={handleChange}     
         ></DepartmentModalInsert>
 
        <DepartmentModalUpdate
           UpdateDeparmentFunction = {UpdateDepartments}
-          modalOnOffUpdateDeparmentFunction  = {modalOnOffEditar}
-          OpenModalDeparmentUpdate = {modalEditar}
+          modalOnOffUpdateDeparmentFunction  = {modalOnOffEdit}
+          OpenModalDeparmentUpdate = {modalEdit}
           HandleChange={handleChange}  
           DepartMentId = {depSelected.id} 
           DepartMentName = {depSelected.name}          
@@ -138,8 +137,8 @@ function DepartmentPage() {
 
         <DepartmentModalDelete
           DeleteDeparmentFunction = {DeleteDepartments}
-          modalOnOffDeleteDeparmentFunction  = {modalOnOffEliminar}
-          OpenModalDeparmentDelete = {modalEliminar}
+          modalOnOffDeleteDeparmentFunction  = {modalOnOffDelete}
+          OpenModalDeparmentDelete = {modalDelete}
           HandleChange={handleChange}  
           DepartMentId = {depSelected.id}   
           Name = {depSelected.name}      
