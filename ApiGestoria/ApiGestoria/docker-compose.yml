@@ -24,12 +24,12 @@ services:
     gestoriafrontend:
          container_name: gestoriafrontend
          build: 
-               context: C:/Users/axel.picon/Desktop/employee/
-               dockerfile: C:/Users/axel.picon/Desktop/employee/Dockerfile
+               context: C:/Users/axel.picon/Desktop/ApiGestoriaNet/ApiGestoria/FrontendGestoriaReact
+               dockerfile: C:/Users/axel.picon/Desktop/ApiGestoriaNet/ApiGestoria/FrontendGestoriaReact/Dockerfile
          depends_on:
              - app            
          volumes:
-                 - 'C:/Users/axel.picon/Desktop/employee:/app'
+                 - 'C:/Users/axel.picon/Desktop/ApiGestoriaNet/ApiGestoria\FrontendGestoriaReact:/app'
                  - '/app/node_modules'
          ports:
                 - 3000:3000
