@@ -1,26 +1,23 @@
-import React from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import GoogleLogin from "react-google-login";
+import { Navigation } from "../Utilities/Navigation";
+import DataUserLoginService from "../../Services/DataloginUserService";
 
 function Home() {
-  const onSuccess = (res) => {
-    localStorage.setItem("loginUserGoogle", res.profileObj.givenName);
-  };
+  const [nameUserlogin, setnameUserlogin] = useState("");
+  useEffect(() => {
+    debugger;
+    new DataUserLoginService().insertTokenLocalStorage();
+    new DataUserLoginService().insertUserloginLocalStorage();
+    setnameUserlogin(localStorage.getItem("loginUserGoogle"));
+  }, []);
 
   return (
-    <div className="text-center">
-      <h3 className="m-3 d-flex justify-content-center">Home</h3>
-      <div>
-        <h3>Autenticación Google</h3>
-        <GoogleLogin
-          clientId="128507741231-f29fn3id10e5nhoihhvhehvgrr8t44r4.apps.googleusercontent.com"
-          buttonText="Google"
-          cookiePolicy={"single_host_origin"}
-          isSignedIn={true}
-          onSuccess={onSuccess}
-        />
-      </div>
-      <h3>Autenticación Auth0</h3>
-    </div>
+    <Fragment>
+      <h1> bienvenido a Apigestoria </h1>
+      <h1> Su usuario es: {nameUserlogin} </h1>
+      <Navigation />
+    </Fragment>
   );
 }
 export default Home;

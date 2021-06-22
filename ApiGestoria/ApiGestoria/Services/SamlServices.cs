@@ -47,7 +47,7 @@ namespace ApiGestoria.Services
             TokenService TokenService = new TokenService();
             token = TokenService.BuildToken(_configuration, UserSamLoginInfo);
 
-            string url = "http://localhost:3000/token=" + token + "&nameUser=" + UserSamLoginInfo.name;
+            string url = "http://localhost:3000/home?token=" + token + "&nameUser=" + UserSamLoginInfo.name;
             RedirectResult redirectResult = new RedirectResult(url, true);
             return redirectResult;
         }
