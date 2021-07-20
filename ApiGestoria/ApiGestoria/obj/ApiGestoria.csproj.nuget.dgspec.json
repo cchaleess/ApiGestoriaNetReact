@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\carlos.paredes\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj": {}
+    "C:\\Users\\carlos.paredes\\Desktop\\.NET\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj": {}
   },
   "projects": {
-    "C:\\Users\\carlos.paredes\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj": {
+    "C:\\Users\\carlos.paredes\\Desktop\\.NET\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\carlos.paredes\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
+        "projectUniqueName": "C:\\Users\\carlos.paredes\\Desktop\\.NET\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
         "projectName": "ApiGestoria",
-        "projectPath": "C:\\Users\\carlos.paredes\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
+        "projectPath": "C:\\Users\\carlos.paredes\\Desktop\\.NET\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
         "packagesPath": "C:\\Users\\carlos.paredes\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\carlos.paredes\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\obj\\",
+        "outputPath": "C:\\Users\\carlos.paredes\\Desktop\\.NET\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\carlos.paredes\\AppData\\Roaming\\NuGet\\NuGet.Config",

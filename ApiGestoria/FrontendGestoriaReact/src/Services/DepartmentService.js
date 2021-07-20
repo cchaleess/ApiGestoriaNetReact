@@ -9,7 +9,7 @@ class DepartmentService {
   user_modificated = localStorage.getItem("userLoginSAML");
 
   getDepartmentList = async () => {
-    return await axios
+    return axios
        .get(this.base_url, { headers: { Authorization: `Bearer ${this.user_token}` } })
       .then(response => {
         return response.data;
@@ -21,7 +21,7 @@ class DepartmentService {
 
   insertDepartment = async (depSelected) => {
     depSelected.userCreated = this.user_created;
-    return await axios
+    return axios
        .post(this.base_url, depSelected,{ headers: { Authorization: `Bearer ${this.user_token}` } })
       .then(response => {
         return response.data;
@@ -33,7 +33,7 @@ class DepartmentService {
 
   updateDepartment = async (depSelected) => {
     depSelected.userModificated = this.user_modificated;
-    return await axios
+    return axios
        .put(this.base_url + '/' +depSelected.id, depSelected,{ headers: { Authorization: `Bearer ${this.user_token}` } })
       .then(response => {
         return response.data;
@@ -44,7 +44,7 @@ class DepartmentService {
   };
 
   deleteDepartment = async (id) => {
-    return await axios
+    return axios
        .delete(this.base_url + '/' +id ,{ headers: { Authorization: `Bearer ${this.user_token}` } })
       .then(response => {
         return response.data;

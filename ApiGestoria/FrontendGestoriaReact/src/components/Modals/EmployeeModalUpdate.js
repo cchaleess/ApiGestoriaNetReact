@@ -1,4 +1,4 @@
-import React, { useState ,Fragment } from "react";
+import React, { Fragment } from "react";
 import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
 
 function EmployeeModalUpdate({UpdateEmployeeFunction , modalOnOffEmployeeFunction  , OpenModalEmployeeUpdate  ,  HandleChange , DepartmentsList, CurrentEmployeeName,CurrentDepartmentId }) {

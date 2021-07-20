@@ -10,7 +10,7 @@ class EmployeeService {
 
   getEmployeeList = async () => {
     debugger;
-    return await axios
+    return axios
        .get(this.base_url, { headers: { Authorization: `Bearer ${this.user_token}` } })
       .then(response => {
         return response.data;
@@ -23,7 +23,7 @@ class EmployeeService {
   insertEmployee = async (empSelected) => {
     debugger;
     empSelected.userCreated = this.user_created;
-    return await axios
+    return axios
        .post(this.base_url, empSelected,{ headers: { Authorization: `Bearer ${this.user_token}` } })
       .then(response => {
         return response.data;
@@ -36,7 +36,7 @@ class EmployeeService {
   updateEmployee= async (empSelected) => {
     debugger;
     empSelected.userModificated = this.user_modificated;
-    return await axios
+    return axios
        .put(this.base_url + '/' +empSelected.id, empSelected,{ headers: { Authorization: `Bearer ${this.user_token}` } })
       .then(response => {
         return response.data;
@@ -48,8 +48,7 @@ class EmployeeService {
 
   deleteEmployee = async (id) => {
     debugger;
-    var axel = this.user_token;
-    return await axios
+    return axios
        .delete(this.base_url + '/' +id ,{ headers: { Authorization: `Bearer ${this.user_token}` } })
       .then(response => {
         return response.data;

@@ -1,5 +1,4 @@
 import React, { useState, useEffect, Fragment } from "react";
-import GoogleLogin from "react-google-login";
 import { Navigation } from "../Utilities/Navigation";
 import DataUserLoginService from "../../Services/DataloginUserService";
 
@@ -14,8 +13,8 @@ function Home() {
 
   return (
     <Fragment>
-      <h1> bienvenido a Apigestoria </h1>
-      <h1> Su usuario es: {nameUserlogin} </h1>
+      <h1> Bienvenido a Apigestoria </h1>
+      <h4> Su usuario es: {nameUserlogin} </h4>
       <Navigation />
     </Fragment>
   );

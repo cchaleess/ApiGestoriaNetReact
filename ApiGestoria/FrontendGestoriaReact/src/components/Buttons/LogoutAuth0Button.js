@@ -9,7 +9,7 @@ export const LogoutAuth0 = () => {
       className="btn btn-danger btn-lg"
       onClick={() => logout({ returnTo: window.location.origin })}
     >
-      Logout
+      Logout Auth0
     </button>
   );
 };

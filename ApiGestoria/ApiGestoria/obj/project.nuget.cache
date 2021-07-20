@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KswHw+P9j5OEOS0BbBskddDtWXEw/Dv+zFApajb3lL5LhIt6PjAX3B/VoDCgU0mmpUGffHdzPLMCPkZDjnnBBA==",
+  "dgSpecHash": "cbG9SoLHTEbR2dIi6tsmahIBz6HsXrL2nsXZ1gaa3C9xtzmQ5BkQIdvDWoA/oQbqiE8613DsA3Pufi6Mbp415w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\carlos.paredes\\Desktop\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
+  "projectFilePath": "C:\\Users\\carlos.paredes\\Desktop\\.NET\\ApiGestoriaNet\\ApiGestoria\\ApiGestoria\\ApiGestoria.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\carlos.paredes\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\carlos.paredes\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

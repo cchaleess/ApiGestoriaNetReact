@@ -1,5 +1,5 @@
-import React, { useState ,Fragment } from "react";
-import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import React, { Fragment } from "react";
+import { Modal, ModalBody, ModalFooter } from "reactstrap";
 
 function EmployeeModalDelete({DeleteEmployeeFunction , modalOnOffDeleteEmployeeFunction  , OpenModalEmployeeDelete  ,  Name , HandleChange }) {
     debugger;
@@ -7,7 +7,7 @@ function EmployeeModalDelete({DeleteEmployeeFunction , modalOnOffDeleteEmployeeF
     <Fragment>
         <Modal isOpen={OpenModalEmployeeDelete }>
             <ModalBody>
-                Estas seguro que desea eliminar el Empleado : {Name && Name} ?
+                Estas seguro que desea eliminar el Empleado : {Name} ?
             </ModalBody>
             <ModalFooter>
                 <button className="btn btn-danger" onClick={() => DeleteEmployeeFunction ()}>

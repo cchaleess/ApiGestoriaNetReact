@@ -1,5 +1,5 @@
-import React, { useState ,Fragment } from "react";
-import { Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import React, {Fragment } from "react";
+import { Modal, ModalBody, ModalFooter } from "reactstrap";
 
 function DepartmentModalDelete({DeleteDeparmentFunction , modalOnOffDeleteDeparmentFunction  , OpenModalDeparmentDelete  ,  Name , HandleChange }) {
     debugger;
@@ -7,7 +7,7 @@ function DepartmentModalDelete({DeleteDeparmentFunction , modalOnOffDeleteDeparm
     <Fragment>
         <Modal isOpen={OpenModalDeparmentDelete}>
             <ModalBody>
-                Estas seguro que desea eliminar el departamento : {Name && Name} ?
+                Estas seguro que desea eliminar el departamento : {Name} ?
             </ModalBody>
             <ModalFooter>
                 <button className="btn btn-danger" onClick={() => DeleteDeparmentFunction ()}>
